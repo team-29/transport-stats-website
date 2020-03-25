@@ -10,6 +10,7 @@
     <meta property="og:title" content="Minor Delays"/>
     <meta property="og:site_name" content="Minor Delays"/>
     <meta property="og:description" content="TfL Overground Statistics"/>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
 *,
@@ -78,8 +79,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="col bottom-buffer">
             <div class="card text-center">
                 <div class="card-body">
-                    <h1 class="card-title bold-text">2 hours 46 minutes</h1>
+                    <h1 class="card-title bold-text">3 hours 24 minutes</h1>
                     <h5 class="card-subtitle">Since the last incident</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col bottom-buffer">
+            <div class="card text-center">
+                <div class="card-body">
+                    <div class="progress-container">
+                        <div id="perHourChart"></div>
+                        <script>
+                        var options = {
+                            chart: {
+                                type: "area",
+                                height: 200,
+                                toolbar: {
+                                    show: false,
+                                },
+                            },
+                            theme: {
+                                monochrome: {
+                                    enabled: true,
+                                    color: '#F86624',
+                                },
+                            },
+                            series: [{
+                                name: "Incidents per hour",
+                                data: [
+                                    "118","343","12","34","122","80","144","159","148","161","178","173","162","145","154","156","167","155","155","161","184","174","222","168",                                ]
+                            }],
+                            xaxis: {
+                                categories: [
+                                    "00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00",                                ]
+                            }
+                        };
+                        var chart = new ApexCharts(document.querySelector("#perHourChart"), options);
+                        chart.render();
+                        </script>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1543,6 +1584,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
 
 </div>
-<!-- Build: 198 Generated: 2020-03-25T16:42:38.323 -->
+<!-- Build: 199 Generated: 2020-03-25T17:21:57.155 -->
 </body>
 </html>
